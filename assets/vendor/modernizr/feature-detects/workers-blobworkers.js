@@ -34,7 +34,7 @@
     worker = new Worker(url);
 
     worker.onmessage = function(e) {
-      Modernizr.addTest('blobworkers', data === e.data);
+      addTest('blobworkers', data === e.data);
       cleanup();
     };
 
@@ -48,7 +48,7 @@
   }
 
   function fail() {
-    Modernizr.addTest('blobworkers', false);
+    addTest('blobworkers', false);
     cleanup();
   }
 
