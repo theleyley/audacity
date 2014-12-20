@@ -7,12 +7,11 @@
     </div>
   <![endif]-->
 
-  <?php
-    do_action('get_header');
-    get_template_part('templates/header');
-  ?>
-
   <div class="wrap container" role="document">
+  	<?php
+	    do_action('get_header');
+	    get_template_part('templates/header');
+	  ?>
     <div class="content row">
       <main class="main" role="main">
         <?php include page_template(); ?>

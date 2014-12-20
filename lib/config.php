@@ -38,4 +38,4 @@ function display_sidebar() {
 }
 
 // max width for content, including images and embedded objects
-if (!isset($content_width)) { $content_width = 1140; }
+if (!isset($content_width)) { $content_width = 960; }
