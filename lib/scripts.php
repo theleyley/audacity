@@ -1,10 +1,7 @@
 <?php
 
 function enqueue_scripts() {
-  /**
-   * The build task in Grunt renames production assets with a hash
-   * Read the asset names from assets-manifest.json
-   */
+  
   if (WP_ENV === 'development') {
     $assets = array(
       'css'       => '/assets/css/main.css',
@@ -16,8 +13,8 @@ function enqueue_scripts() {
     $get_assets = file_get_contents(get_template_directory() . '/assets/manifest.json');
     $assets     = json_decode($get_assets, true);
     $assets     = array(
-      'css'       => '/assets/css/main.min.css',
-      'js'        => '/assets/js/scripts.min.js',
+      'css'       => '/assets/css/main.min.css?' . $assets['assets/css/main.min.css']['hash'],
+      'js'        => '/assets/js/scripts.min.js?' . $assets['assets/js/scripts.min.js']['hash'],
       'modernizr' => '/assets/js/vendor/modernizr.min.js',
       'jquery'    => '//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'
     );
@@ -25,10 +22,15 @@ function enqueue_scripts() {
 
   wp_enqueue_style('main_css', get_template_directory_uri() . $assets['css'], false, null);
 
+  /**
+   * jQuery is loaded using the same method from HTML5 Boilerplate:
+   * Grab Google CDN's latest jQuery with a protocol relative URL; fallback to local if offline
+   * It's kept in the header instead of footer to avoid conflicts with plugins.
+   */
   if (!is_admin() && current_theme_supports('jquery-cdn')) {
     wp_deregister_script('jquery');
     wp_register_script('jquery', $assets['jquery'], array(), null, true);
-    add_filter('script_loader_src', 'roots_jquery_local_fallback', 10, 2);
+    add_filter('script_loader_src', 'local_jquery_fallback', 10, 2);
   }
 
   if (is_single() && comments_open() && get_option('thread_comments')) {
@@ -42,7 +44,7 @@ function enqueue_scripts() {
 add_action('wp_enqueue_scripts', 'enqueue_scripts', 100);
 
 // http://wordpress.stackexchange.com/a/12450
-function jquery_fallback($src, $handle = null) {
+function local_jquery_fallback($src, $handle = null) {
   static $add_jquery_fallback = false;
 
   if ($add_jquery_fallback) {
@@ -56,4 +58,4 @@ function jquery_fallback($src, $handle = null) {
 
   return $src;
 }
-add_action('wp_head', 'jquery_fallback');
+add_action('wp_head', 'local_jquery_fallback');

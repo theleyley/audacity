@@ -1,9 +1,17 @@
 <?php
 
 $includes = array(
-	'lib/activation.php',
-	'lib/cleanup.php',
-	'lib/enqueue.php',
+  'lib/utils.php',           // Utility functions
+  'lib/init.php',            // Initial theme setup and constants
+  'lib/wrapper.php',         // Theme wrapper class
+  'lib/config.php',          // Configuration
+  'lib/activation.php',      // Theme activation
+  'lib/vendor/sidebar.php',  // Sidebar class
+  'lib/vendor/gallery.php',  // Custom [gallery] modifications
+  'lib/titles.php',          // Page titles
+  'lib/vendor/nav.php',      // Custom nav modifications
+  'lib/scripts.php',         // Scripts and stylesheets
+  'lib/extras.php',          // Custom functions
 );
 
 foreach ($includes as $file) {
