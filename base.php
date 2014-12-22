@@ -14,6 +14,9 @@
 			if(is_front_page()){
 				get_template_part('templates/hero');
 			}
+		  if(is_front_page()) {
+				get_template_part('templates/widgets');
+			}
 	  ?>
     <div class="content row">
       <main class="main" role="main">
@@ -33,3 +36,5 @@
 
 </body>
 </html>
+
+

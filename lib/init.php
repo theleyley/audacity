@@ -17,7 +17,7 @@ function register_sidebars_init() {
   register_sidebar(array(
     'name'          => 'Home Widget Area 1',
     'id'            => 'home-1',
-    'before_widget' => '<section class="widget %1$s %2$s">',
+    'before_widget' => '<section class="clearfix widget %1$s %2$s">',
     'after_widget'  => '</section>',
     'before_title'  => '<h3>',
     'after_title'   => '</h3>',
@@ -26,7 +26,7 @@ function register_sidebars_init() {
   register_sidebar(array(
     'name'          => 'Home Widget Area 2',
     'id'            => 'home-2',
-    'before_widget' => '<section class="widget %1$s %2$s">',
+    'before_widget' => '<section class="clearfix widget %1$s %2$s">',
     'after_widget'  => '</section>',
     'before_title'  => '<h3>',
     'after_title'   => '</h3>',
@@ -35,7 +35,7 @@ function register_sidebars_init() {
   register_sidebar(array(
     'name'          => 'Home Widget Area 3',
     'id'            => 'home-3',
-    'before_widget' => '<section class="widget %1$s %2$s">',
+    'before_widget' => '<section class="clearfix widget %1$s %2$s">',
     'after_widget'  => '</section>',
     'before_title'  => '<h3>',
     'after_title'   => '</h3>',
@@ -44,7 +44,25 @@ function register_sidebars_init() {
   register_sidebar(array(
     'name'          => 'Home Widget Area 4',
     'id'            => 'home-4',
-    'before_widget' => '<section class="widget %1$s %2$s">',
+    'before_widget' => '<section class="clearfix widget %1$s %2$s">',
+    'after_widget'  => '</section>',
+    'before_title'  => '<h3>',
+    'after_title'   => '</h3>',
+  ));
+  
+  register_sidebar(array(
+    'name'          => 'Home Widget Area Part 1',
+    'id'            => 'home-5',
+    'before_widget' => '<section class="clearfix widget %1$s %2$s">',
+    'after_widget'  => '</section>',
+    'before_title'  => '<h3>',
+    'after_title'   => '</h3>',
+  ));
+  
+  register_sidebar(array(
+    'name'          => 'Home Widget Area Part 2',
+    'id'            => 'home-6',
+    'before_widget' => '<section class="clearfix widget %1$s %2$s">',
     'after_widget'  => '</section>',
     'before_title'  => '<h3>',
     'after_title'   => '</h3>',
@@ -53,7 +71,7 @@ function register_sidebars_init() {
   register_sidebar(array(
     'name'          => 'Primary',
     'id'            => 'sidebar-primary',
-    'before_widget' => '<section class="widget %1$s %2$s">',
+    'before_widget' => '<section class="clearfix widget %1$s %2$s">',
     'after_widget'  => '</section>',
     'before_title'  => '<h3>',
     'after_title'   => '</h3>',
@@ -62,7 +80,7 @@ function register_sidebars_init() {
   register_sidebar(array(
     'name'          => 'Footer',
     'id'            => 'sidebar-footer',
-    'before_widget' => '<section class="widget %1$s %2$s">',
+    'before_widget' => '<section class="clearfix widget %1$s %2$s">',
     'after_widget'  => '</section>',
     'before_title'  => '<h3>',
     'after_title'   => '</h3>',

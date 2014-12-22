@@ -1,4 +1,5 @@
-$(document).ready(function() {
+
+jQuery(document).ready(function($) {
     $('.nav li.dropdown').hover(function() {
         $(this).addClass('open');
     }, function() {

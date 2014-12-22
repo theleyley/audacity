@@ -8,6 +8,7 @@ $includes = array(
   'lib/activation.php',      // Theme activation
   'lib/vendor/sidebar.php',  // Sidebar class
   'lib/vendor/gallery.php',  // Custom [gallery] modifications
+  'lib/widgets.php',				 // Custom Widgets
   'lib/slides.php',					 // Slides Custom Post Type
   'lib/titles.php',          // Page titles
   'lib/options.php',         // Theme Options functions
