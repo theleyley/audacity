@@ -10,12 +10,12 @@ function enqueue_scripts() {
       'jquery'    => '//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js'
     );
   } else {
-    $get_assets = file_get_contents(get_template_directory() . '/assets/manifest.json');
-    $assets     = json_decode($get_assets, true);
     $assets     = array(
       'css'       => '/assets/css/main.min.css?' . $assets['assets/css/main.min.css']['hash'],
       'js'        => '/assets/js/scripts.min.js?' . $assets['assets/js/scripts.min.js']['hash'],
       'modernizr' => '/assets/js/vendor/modernizr.min.js',
+      'html5shiv'	=> '/assets/js/vendor/html5shiv.min.js',
+      'respond'		=> '/assets/vendor/respond/dest/respond.min.js',
       'jquery'    => '//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'
     );
   }
@@ -39,6 +39,7 @@ function enqueue_scripts() {
 
   wp_enqueue_script('modernizr', get_template_directory_uri() . $assets['modernizr'], array(), null, true);
   wp_enqueue_script('jquery');
+  wp_enqueue_script('respond', get_template_directory_uri() . $assets['respond'], array(), null, true);
   wp_enqueue_script('main_js', get_template_directory_uri() . $assets['js'], array(), null, true);
 }
 add_action('wp_enqueue_scripts', 'enqueue_scripts', 100);
