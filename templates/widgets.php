@@ -2,27 +2,27 @@
 <?php
 
 if(is_active_sidebar('home-1')) {
-	echo '<div class="col-sm-6 col-md-3 widget-area">';
+	echo '<div class="col-xs-6 col-sm-6 col-md-3 widget-area">';
 	dynamic_sidebar('home-1');
 	echo '</div>';
 }
 
 if(is_active_sidebar('home-2')) {
-	echo '<div class="col-sm-6 col-md-3 widget-area">';
+	echo '<div class="col-xs-6 col-sm-6 col-md-3 widget-area">';
 	dynamic_sidebar('home-2');
 	echo '</div>';
 }
 
 
 if(is_active_sidebar('home-3')) {
-	echo '<div class="col-sm-6 col-md-3 widget-area">';
+	echo '<div class="col-xs-6 col-sm-6 col-md-3 widget-area">';
 	dynamic_sidebar('home-3');
 	echo '</div>';
 }
 
 
 if(is_active_sidebar('home-4')) {
-	echo '<div class="col-sm-6 col-md-3 widget-area">';
+	echo '<div class="col-xs-6 col-sm-6 col-md-3 widget-area">';
 	dynamic_sidebar('home-4');
 	echo '</div>';
 }

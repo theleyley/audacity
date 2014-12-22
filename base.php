@@ -16,9 +16,10 @@
 			}
 		  if(is_front_page()) {
 				get_template_part('templates/widgets');
-			}
+			}else {
 	  ?>
     <div class="content row">
+  		<?php get_template_part('templates/page', 'header'); ?>
       <main class="main" role="main">
         <?php include page_template(); ?>
       </main><!-- /.main -->
@@ -28,6 +29,7 @@
         </aside><!-- /.sidebar -->
       <?php endif; ?>
     </div><!-- /.content -->
+    <? } ?>
   </div><!-- /.wrap -->
 
   <?php get_template_part('templates/footer'); ?>

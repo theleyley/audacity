@@ -9,7 +9,7 @@ class Display_Page_Widget extends WP_Widget {
   private $fields = array(
     'title'     => 'Title (optional)',
     'trim_num'	=> 'Number of words to display',
-    'btn_text'	=> 'Button Text'
+    'btn_text'	=> 'Link Text'
   );
 
   function __construct() {
@@ -43,23 +43,28 @@ class Display_Page_Widget extends WP_Widget {
     extract($args, EXTR_SKIP);
 		
 		global $post;
+		
 		$id = $instance['url'];
-		$dest_id = $instance['btn_url'];
-		$show_img = isset( $instance['show_img'] ) ? $instance['show_img'] : false;
-		$current_page = $post->ID;
 		$page = get_page($id);
 		$content = apply_filters( 'the_content', $page->post_content );
-		$contact_page = get_page($dest_id);
+		
+		$dest_id = $instance['btn_url'];
+		$dest_page = get_page($dest_id);
+		
     $title = apply_filters('widget_title', empty($instance['title']) ? $page->post_title : $instance['title'], $instance, $this->id_base);
-		$btn_text = isset( $instance['btn_text'] ) ? $instance['btn_text'] : 'Learn More';
-		$trim_num = isset( $instance['trim_num'] ) ? $instance['trim_num'] : 11;
 		
+		$btn_text = !empty( $instance['btn_text'] ) ? $instance['btn_text'] : 'Learn More';
+		$trim_num = !empty( $instance['trim_num'] ) ? $instance['trim_num'] : 11;
 		
+		$show_img = isset( $instance['show_img'] ) ? $instance['show_img'] : false;
+		$display_btn = isset( $instance['display_btn'] ) ? $instance['display_btn'] : false;
+		
+		$btn_class = ($display_btn != false) ? 'class="btn btn-xs btn-widget"' : null;
+		$btn_arrow = ($display_btn != false) ? ' <span class="glyphicon glyphicon-play" aria-hidden="true"></span>' : '';
 		 
     foreach($this->fields as $name => $label) {
       if (!isset($instance[$name])) { $instance[$name] = ''; }
     }
-		
 		
 		if($id != $current_page) {
 		
@@ -74,13 +79,10 @@ class Display_Page_Widget extends WP_Widget {
 	 if($show_img != false){ 
 			echo get_the_post_thumbnail( $id, '', array('class' => 'img-responsive img-thumbnail alignleft') );
   	 } 
-		if(!empty($page->post_excerpt)) {
-			echo $page->post_excerpt;
-		}else {
-    	echo wp_trim_words($content, $trim_num, '');
-    }
+    echo trim_words($content, $trim_num, '');
 	?>
-	<a href="<?php echo get_permalink($id); ?>" title="<?php echo $page->post_title; ?>" class="btn btn-xs btn-widget"><?php echo $btn_text ?> <span class="glyphicon glyphicon-play" aria-hidden="true"></span></a>
+	
+	<a href="<?php echo get_permalink($dest_id); ?>" title="<?php echo $dest_page->post_title; ?>" <?php echo $btn_class; ?>><?php echo $btn_text.$btn_arrow; ?></a>
   <?php
 		} //if $id
     echo $after_widget;
@@ -129,6 +131,10 @@ class Display_Page_Widget extends WP_Widget {
      <p>
         <input class="checkbox" type="checkbox" <?php checked( (bool) $instance['show_img'], true ); ?> id="<?php echo $this->get_field_id( 'show_img' ); ?>" name="<?php echo $this->get_field_name( 'show_img' ); ?>" /> 
         <label for="<?php echo $this->get_field_id( 'show_img' ); ?>">Display Featured Image</label>
+    </p>
+     <p>
+        <input class="checkbox" type="checkbox" <?php checked( (bool) $instance['display_btn'], true ); ?> id="<?php echo $this->get_field_id( 'display_btn' ); ?>" name="<?php echo $this->get_field_name( 'display_btn' ); ?>" /> 
+        <label for="<?php echo $this->get_field_id( 'display_btn' ); ?>">Display Link as Button</label>
     </p>
     
     <?php 

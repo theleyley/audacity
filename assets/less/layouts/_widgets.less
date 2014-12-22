@@ -1,6 +1,17 @@
+.widget-title {
+	margin: 0 0 @padding;
+	font-size: 1.667em;
+	color: @navbar-color-dark;
+	font-weight: bold;
+}
+
 .widget-area {
 	padding-top: @padding;
 	padding-bottom: @padding;
+	
+	.display-pages & {
+		padding-top: 0px;
+	}
 	
 	.widget {
 		background-color: @widget-bg-color;
@@ -9,10 +20,16 @@
 		font-size: 0.75em;
 		
 		> h3 {
-			margin: 0 0 @padding;
-			font-size: 1.667em;
-			color: @navbar-color-dark;
-			font-weight: bold;
+			.widget-title();
 		}
 	}
 }
+
+.home .widget {
+	padding: @padding;
+	font-size: 0.75em;
+	h3 {
+		.widget-title();
+	}
+}
+

@@ -26,3 +26,20 @@
 		width: 100%; /* Firefox fix*/
 	}
 }
+
+@media (max-width: @screen-sm-max) {
+	.carousel-caption {
+		font-size: 1em;
+		
+		h2 {
+			font-size: 1.75em;
+		}
+	}
+}
+
+@media (max-width: @screen-xs-min) {
+	.carousel-caption {
+		position: static;
+		width: 100%;
+	}
+}
