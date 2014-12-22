@@ -19,7 +19,8 @@ function enqueue_scripts() {
       'jquery'    => '//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'
     );
   }
-
+  wp_enqueue_script('html5shiv', get_template_directory_uri() . $assets['html5shiv'], array(), null, false);
+	
   wp_enqueue_style('main_css', get_template_directory_uri() . $assets['css'], false, null);
 
   /**
