@@ -9,6 +9,17 @@ function header_logo($class=NULL){
 	echo '<a class="navbar-brand header_logo '.$class.'" href="'. $home_url .'">'.$header_image.'</a>';
 }
 
+function copyright() {
+	echo '<div class="copyright">';
+	if(audacity_get_option('copyright')) {
+		echo audacity_get_option('copyright');
+	}else {
+		$blogname = (audacity_get_option('campaign_name')) ? audacity_get_option('campaign_name') : get_bloginfo('name');
+		echo 'Copyright &copy; '.date('Y') . ' ' . $blogname . '. All rights reserved.';
+	}
+	echo '</div>';
+}
+
 
 // Custom Excerpt
 function trim_words( $text, $num_words = 55, $more = null ) {

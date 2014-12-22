@@ -15,6 +15,15 @@ add_action('after_setup_theme', 'setup_init');
 
 function register_sidebars_init() {
   register_sidebar(array(
+    'name'          => 'Primary',
+    'id'            => 'sidebar-primary',
+    'before_widget' => '<section class="clearfix widget %1$s %2$s">',
+    'after_widget'  => '</section>',
+    'before_title'  => '<h3>',
+    'after_title'   => '</h3>',
+  ));
+	
+  register_sidebar(array(
     'name'          => 'Home Widget Area 1',
     'id'            => 'home-1',
     'before_widget' => '<section class="clearfix widget %1$s %2$s">',
@@ -62,24 +71,6 @@ function register_sidebars_init() {
   register_sidebar(array(
     'name'          => 'Home Widget Area Part 2',
     'id'            => 'home-6',
-    'before_widget' => '<section class="clearfix widget %1$s %2$s">',
-    'after_widget'  => '</section>',
-    'before_title'  => '<h3>',
-    'after_title'   => '</h3>',
-  ));
-  
-  register_sidebar(array(
-    'name'          => 'Primary',
-    'id'            => 'sidebar-primary',
-    'before_widget' => '<section class="clearfix widget %1$s %2$s">',
-    'after_widget'  => '</section>',
-    'before_title'  => '<h3>',
-    'after_title'   => '</h3>',
-  ));
-
-  register_sidebar(array(
-    'name'          => 'Footer',
-    'id'            => 'sidebar-footer',
     'before_widget' => '<section class="clearfix widget %1$s %2$s">',
     'after_widget'  => '</section>',
     'before_title'  => '<h3>',

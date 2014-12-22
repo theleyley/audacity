@@ -30,9 +30,10 @@
       <?php endif; ?>
     </div><!-- /.content -->
     <? } ?>
+    
+  <?php get_template_part('templates/footer'); ?>
   </div><!-- /.wrap -->
 
-  <?php get_template_part('templates/footer'); ?>
 
   <?php wp_footer(); ?>
 

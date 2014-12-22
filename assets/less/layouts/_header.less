@@ -107,43 +107,44 @@
   .navbar-form {
     border-color: @navbar-default-border;
   }
-
-  .navbar-nav {
-    > .open > a {
-      &,
-      &:hover,
-      &:focus {
-        background-color: @navbar-hover-bg;
-        color: @navbar-link-hover-color;
-        border-radius: @border-radius @border-radius 0 0;
-        box-shadow: 0px 3px 3px rgba(0,0,0,0.75);
-        -moz-box-shadow: 0px 3px 3px rgba(0,0,0,0.75);
-        -webkit-box-shadow:  0px 3px 3px rgba(0,0,0,0.75);
-      }     
-    }
-		.dropdown-menu {
-      box-shadow: 0px 3px 3px rgba(0,0,0,0.75);
-      -moz-box-shadow: 0px 3px 3px rgba(0,0,0,0.75);
-      -webkit-box-shadow:  0px 3px 3px rgba(0,0,0,0.75);
-      border-color: @navbar-hover-bg;
-      /*left: -1px;*/
-      
-      > li {
-      	> a {
-	      	padding-left: @padding;
-	      	color: @navbar-link-color;
-      	}
-	      &.active,
+	@media (min-width: @screen-sm-min) {
+	  .navbar-nav {
+	    > .hoverstate > a {
+	      &,
 	      &:hover,
 	      &:focus {
+	        background-color: @navbar-hover-bg;
+	        color: @navbar-link-hover-color;
+	        border-radius: @border-radius @border-radius 0 0;
+	        box-shadow: 0px 3px 3px rgba(0,0,0,0.75);
+	        -moz-box-shadow: 0px 3px 3px rgba(0,0,0,0.75);
+	        -webkit-box-shadow:  0px 3px 3px rgba(0,0,0,0.75);
+	      }     
+	    }
+			.dropdown-menu {
+	      box-shadow: 0px 3px 3px rgba(0,0,0,0.75);
+	      -moz-box-shadow: 0px 3px 3px rgba(0,0,0,0.75);
+	      -webkit-box-shadow:  0px 3px 3px rgba(0,0,0,0.75);
+	      border-color: @navbar-hover-bg;
+	      /*left: -1px;*/
+	      
+	      > li {
 	      	> a {
-	      		background-color: transparent;
-	      		color: @navbar-link-hover-color;
+		      	padding-left: @padding;
+		      	color: @navbar-link-color;
 	      	}
+		      &.active,
+		      &:hover,
+		      &:focus {
+		      	> a {
+		      		background-color: transparent;
+		      		color: @navbar-link-hover-color;
+		      	}
+		      }
 	      }
-      }
-    } 
-  }
+	    } 
+	  }
+	}
 }
 
 @media (min-width: @screen-sm-min) {

@@ -50,6 +50,13 @@ function optionsframework_options() {
 		'desc' => __('Upload logo to appear in header', $themename),
 		'id' => 'logo_head',
 		'type' => 'upload');
+
+	$options[] = array(
+		'name' => __('Copyright &copy; Text', $themename),
+		'desc' => __('Default Copyright Text - Copyright © '.date(Y).' '.$sitename.'. All rights reserved.', $themename),
+		'id' => 'copyright',
+		'placeholder' => 'Adding copyright text here will override the default copyright text',
+		'type' => 'text');
 		
 	return $options;
 }
